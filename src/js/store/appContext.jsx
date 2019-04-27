@@ -17,9 +17,17 @@ const Store = PassedComponent => {
 		}
 
 		componentDidMount() {
-			// this function is the equivalent to "window.onLoad"
-			// it only run once on the entire application lifetime
-			// you should do your ajax requests here
+			fetch("http://assets.breatheco.de/apis/fake/contact/agenda/downtown_viii")
+				.then(response => response.json())
+
+				.then(data => {
+					let { store } = this.state;
+					store.contacts = data;
+					this.setState({ store });
+					console.log(store.contacts);
+					
+				});
+
 		}
 
 		render() {
