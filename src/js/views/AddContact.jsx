@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext.jsx";
+import PropTypes from 'prop-types';
 
 export default class AddContact extends React.Component {
 	render() {
@@ -29,7 +30,7 @@ export default class AddContact extends React.Component {
 									<label>Address</label>
 									<input type="text" id="addressLocation" className="form-control" placeholder="Enter address" />
 								</div>
-								<button type="button" className="btn btn-primary form-control" onClick={()=>actions.addContact(document.querySelector("#fullNameInput").value, document.querySelector("#emailAdress").value, document.querySelector("#phoneNumber").value, document.querySelector("#addressLocation").value)}
+								<button type="button" className="btn btn-primary form-control" onClick={()=>actions.addContact(document.querySelector("#fullNameInput").value, document.querySelector("#emailAdress").value, document.querySelector("#phoneNumber").value, document.querySelector("#addressLocation").value, this.props.history)}
 								>save</button>
 								<Link className="mt-3 w-100 text-center" to="/">or get back to contacts</Link>
 							</form>
@@ -44,3 +45,10 @@ export default class AddContact extends React.Component {
 		);
 	}
 }
+
+
+AddContact.propTypes = {
+ match: PropTypes.object,
+ history:PropTypes.object
+	
+};

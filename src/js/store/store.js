@@ -1,4 +1,4 @@
-
+import PropTypes from "prop-types";
 import React from "react";
 
 const getState = ({ getStore, setStore }) => {
@@ -11,20 +11,35 @@ const getState = ({ getStore, setStore }) => {
 		
 		
 		actions: {
-		deleteCon: ()=>{
+		deleteCon: (id)=>{
 			const store = getStore();
-				fetch("https://assets.breatheco.de/apis/fake/contact/{contact_id}",{
+				fetch("https://assets.breatheco.de/apis/fake/contact/" + id,{
 					method: "DELETE"
+					
+
 			
+				})
+					
+				.then(getDataUpdated=>  {
+				fetch("https://assets.breatheco.de/apis/fake/contact/agenda/downtown_viii")
+				.then(response => response.json())
+
+				.then(data => {
 			
-			
+					store.contacts = data;
+					setStore({ store:store });
+		
+				
+				});
 				});
 			
-			
+				
 		},
 		
+			
 		
-		addContact: (name,email,number,address) => {
+		
+		addContact: (name,email,number,address,props) => {
 			const store = getStore();
 				fetch("https://assets.breatheco.de/apis/fake/contact/",{
 					method: 'POST', 
@@ -37,24 +52,26 @@ const getState = ({ getStore, setStore }) => {
 					"agenda_slug":"downtown_viii"
 					
 				})
+				})
+				
+				
+				.then(getDataUpdated=>  {
+				fetch("https://assets.breatheco.de/apis/fake/contact/agenda/downtown_viii")
+				.then(response => response.json())
+
+				.then(data => {
+			
+					store.contacts = data;
+					setStore({ store:store});
+		
+				
+				});
 				});
 				
-		
-					
-				
-				
-				// .then(getDataUpdated=>  {
-				// fetch("https://assets.breatheco.de/apis/fake/contact/agenda/downtown_viii")
-				// .then(response => response.json())
+				props.history.push("/");
 
-				// .then(data => {
 			
-				// 	store.contacts = data;
-				// 	setStore({ store:store });
-		
-				
-				// });
-				// });
+
 				
 				},
 		
@@ -73,7 +90,22 @@ const getState = ({ getStore, setStore }) => {
 					
 					
 				})
+				})
+				
+				.then(getDataUpdated=>  {
+				fetch("https://assets.breatheco.de/apis/fake/contact/agenda/downtown_viii")
+				.then(response => response.json())
+
+				.then(data => {
+			
+					store.contacts = data;
+					setStore({ store:store });
+		
+				
 				});
+				});
+				
+				
 			}
 				
 				}
@@ -84,7 +116,12 @@ const getState = ({ getStore, setStore }) => {
 				
 			};
 		};
-	
+		
+getState.propTypes = {
+		history: PropTypes.object,
+		match:	PropTypes.object
+		
+};
 
 export default getState;
 

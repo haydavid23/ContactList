@@ -48,6 +48,7 @@ export default class EditContacts extends React.Component {
 
 
 EditContacts.propTypes = {
- match: PropTypes.object
+ match: PropTypes.object,
+ history:PropTypes.object
 	
 };

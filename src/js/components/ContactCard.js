@@ -26,7 +26,7 @@ class ContactCard extends React.Component{
 									<div className="col-12 col-sm-6 col-md-9 text-center text-sm-left">
 										<div className=" float-right">
 											<button className="btn" onClick={() => this.props.history.push('/edit/'+ item.id)}><i className="fas fa-pencil-alt mr-3"></i></button>
-											<button className="btn" onClick={() => this.props.onDelete()}> <i className="fas fa-trash-alt"> </i> </button>
+											<button className="btn" onClick={() => actions.deleteCon(item.id)}> <i className="fas fa-trash-alt"> </i> </button>
 										</div> 
 										<label className="name lead">{item.full_name}</label>
 										<br /> 
@@ -52,6 +52,12 @@ class ContactCard extends React.Component{
 
 }
 
+
+
+ContactCard.propTypes = {
+ match: PropTypes.object
+	
+};
 /**
  * Define the data-types for
  * your component's properties
