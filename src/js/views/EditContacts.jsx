@@ -30,7 +30,7 @@ export default class EditContacts extends React.Component {
 									<label>Address</label>
 									<input type="text" id="addressLocation" className="form-control" placeholder="Enter address" />
 								</div>
-								<button type="button" className="btn btn-primary form-control" onClick={()=>actions.editContact(document.querySelector("#fullNameInput").value, document.querySelector("#emailAdress").value, document.querySelector("#phoneNumber").value, document.querySelector("#addressLocation").value, this.props.match.params.theid)}
+								<button type="button" className="btn btn-primary form-control" onClick={()=>actions.editContact(document.querySelector("#fullNameInput").value, document.querySelector("#emailAdress").value, document.querySelector("#phoneNumber").value, document.querySelector("#addressLocation").value, this.props.match.params.theid, this.props.history.push("/"))}
 								>save</button>
 								<Link className="mt-3 w-100 text-center" to="/">or get back to contacts</Link>
 							</form>

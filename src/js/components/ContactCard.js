@@ -28,7 +28,7 @@ class ContactCard extends React.Component{
 											<button className="btn" onClick={() => this.props.history.push('/edit/'+ item.id)}><i className="fas fa-pencil-alt mr-3"></i></button>
 											<button className="btn" onClick={() => actions.deleteCon(item.id)}> <i className="fas fa-trash-alt"> </i> </button>
 										</div> 
-										<label className="name lead">{item.full_name}</label>
+										<label className="name lead" id="contactName">{item.full_name}</label>
 										<br /> 
 										<i className="fas fa-map-marker-alt text-muted mr-3"></i>
 										<span className="text-muted">{item.address}</span>
@@ -56,6 +56,7 @@ class ContactCard extends React.Component{
 
 ContactCard.propTypes = {
  match: PropTypes.object
+
 	
 };
 /**

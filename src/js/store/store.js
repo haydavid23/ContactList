@@ -68,14 +68,14 @@ const getState = ({ getStore, setStore }) => {
 				});
 				});
 				
-				props.history.push("/");
+				props;
 
 			
 
 				
 				},
 		
-			editContact: (name,email,number,address,id) => {
+			editContact: (name,email,number,address,id,props) => {
 			const store = getStore();
 				fetch("https://assets.breatheco.de/apis/fake/contact/" + id  ,{
 					method: 'PUT', 
@@ -105,7 +105,7 @@ const getState = ({ getStore, setStore }) => {
 				});
 				});
 				
-				
+				props;
 			}
 				
 				}
