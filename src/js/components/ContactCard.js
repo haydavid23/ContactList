@@ -4,20 +4,19 @@ import PropTypes from 'prop-types';
 import { Context } from "../store/appContext.jsx";
 
 class ContactCard extends React.Component{
-	constructor(){
-		super();
-		this.state = {
-			
-		};
-	}
+	
+
+
 	
 	render(){
 		
 		return (
 			<Context.Consumer>
 				{({ store, actions }) => { return store.contacts.map((item, index) => {
+				
+							
 						return (
-						
+	
 							<li className="list-group-item" key={index}>
 								<div className="row w-100">
 									<div className="col-12 col-sm-6 col-md-3 px-0">
@@ -25,7 +24,7 @@ class ContactCard extends React.Component{
 									</div>
 									<div className="col-12 col-sm-6 col-md-9 text-center text-sm-left">
 										<div className=" float-right">
-											<button className="btn" onClick={() => this.props.history.push('/edit/'+ item.id)}><i className="fas fa-pencil-alt mr-3"></i></button>
+											<button className="btn" onClick={() =>this.props.history.push('/edit/'+ index)}><i className="fas fa-pencil-alt mr-3"></i></button>
 											<button className="btn" onClick={() => actions.deleteCon(item.id)}> <i className="fas fa-trash-alt"> </i> </button>
 										</div> 
 										<label className="name lead" id="contactName">{item.full_name}</label>
@@ -56,6 +55,7 @@ class ContactCard extends React.Component{
 
 ContactCard.propTypes = {
  match: PropTypes.object
+ //id: PropTypes.number
 
 	
 };
