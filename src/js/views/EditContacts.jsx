@@ -18,6 +18,7 @@ export default class EditContacts extends React.Component {
 				{({ store, actions }) => {
 				let id = this.props.match.params.theid;
 				let dataId = store.contacts[id].id;
+				console.log(id);
 		
 				return (
 				

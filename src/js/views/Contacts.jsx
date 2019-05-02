@@ -26,7 +26,7 @@ export default class Contacts extends React.Component {
 					</ul>
 				</div>
 			</div>
-			<Modal show={this.state.showModal} onClose={() => this.setState({showModal: false})}/>
+			<Modal  show={this.state.showModal} onClose={() => this.setState({showModal: false})}/>
 		</div>
 		);
 	}

@@ -4,14 +4,20 @@ import React from "react";
 const getState = ({ getStore, setStore }) => {
 	
 	return {
-		store: {
-			contacts:[]
+		store: 
+
+		{
+			contacts:[],
+			id:""
+			
+		
+			
 		},
 		
 		
 		
 		actions: {
-		deleteCon: (id)=>{
+		deleteCon: (id,close)=>{
 			const store = getStore();
 				fetch("https://assets.breatheco.de/apis/fake/contact/" + id,{
 					method: "DELETE"
@@ -32,7 +38,8 @@ const getState = ({ getStore, setStore }) => {
 				
 				});
 				});
-			
+				
+			close;
 				
 		},
 		

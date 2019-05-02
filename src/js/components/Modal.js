@@ -8,15 +8,23 @@ class Modal extends React.Component{
 		super();
 		this.state = {
 			
+			
 		};
 	}
 		
 	render(){
 		
+		
 		return (
 			
 			<Context.Consumer>
 				{({ store, actions }) => { 
+						
+			
+			
+				
+				
+				
 				return (
 					<div className="modal" tabIndex="-1"  role="dialog" style={{display: (this.props.show) ? 'inline-block' : 'none'}}>
 						<div className="modal-dialog" role="document">
@@ -34,8 +42,8 @@ class Modal extends React.Component{
 									<p>Warning: unknown consequences after this point... Kidding!</p>
 								</div>
 								<div className="modal-footer">
-									<button type="button" className="btn btn-primary">Oh no!</button>
-									<button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={()=>actions.deleteCon(store.contacts.id)}>Do it!</button>
+									<button type="button" className="btn btn-primary" onClick={() => this.props.onClose()}>Oh no!</button>
+									<button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={() =>actions.deleteCon(store.id, this.props.onClose())}>Do it!</button>
 								</div>
 							</div>
 						</div>
@@ -55,7 +63,8 @@ Modal.propTypes = {
 	history: PropTypes.object,
 	onClose: PropTypes.func,
 	show: PropTypes.bool,
-	match:PropTypes.object
+	match:PropTypes.object,
+	onDelete: PropTypes.func
 	
 	
 };
